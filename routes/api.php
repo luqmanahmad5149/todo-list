@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\GoogleController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Api\V1\GoogleController;
+use App\Http\Controllers\Api\V1\ToDoController;
+use App\Http\Controllers\Api\V1\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,12 +16,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/login', [UserController::class, 'login']);
+// v1 API collection
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function() {
+    // Login API
+    Route::post('/login', [UserController::class, 'login']);
+
+    // To-do API's
+    Route::middleware('auth:sanctum')->group(function() {
+        Route::post('/task', [ToDoController::class, 'postTask']);
+        Route::get('/tasks', [ToDoController::class, 'getTasks']);
+        Route::put('/task/update', [ToDoController::class, 'updateStatus']);
+        Route::delete('/task/delete', [ToDoController::class, 'deleteTask']);
+    });
+});
+
 
 // Login via Google
 // Route::get('/auth/google', [GoogleController::class, 'googleAuth']);
 // Route::get('/auth/google/callback', [GoogleController::class, 'googleAuthCallback']);
-
-// Route::middleware('auth:sanctum')->group(function() {
-
-// });
