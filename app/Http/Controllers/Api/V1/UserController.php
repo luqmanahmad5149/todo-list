@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Exceptions\GeneralException;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -26,7 +28,7 @@ class UserController extends Controller
                 $user = User::where('email', $request->email)->first();
 
                 if(!$user || !Hash::check($request->password, $user->password)) {
-                    return response([
+                    return response()->json([
                         'message' => ['These credentials do not match our records.']
                     ], 404);
                 }
@@ -34,17 +36,17 @@ class UserController extends Controller
                 $token = $user->createToken('auth_token')->plainTextToken;
         
                 $response = [
-                    'user' => $user,
+                    'user' => new UserResource($user),
                     'token' => $token,
                 ];
         
-                return response($response, 201);
+                return response()->json($response, 201);
             } catch(\Exception $e) {
                 throw new GeneralException($e->getMessage(), 400);
             }
 
         } else {
-            return response($validate->errors(), 401); 
+            return response()->json($validate->errors(), 401); 
         }
     }
 }

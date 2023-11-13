@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\Api\V1\GoogleController;
 use Illuminate\Support\Facades\Route;
 
 /*
