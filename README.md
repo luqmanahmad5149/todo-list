@@ -40,9 +40,14 @@ Track tasks completion API
 
 ## API Interface Documentation
 | HTTP Request | Endpoint        | Description    |
+| :---:        | :---:           | :---: |
 | POST         | /login          | Login into the project and get authenticated. |
+| :---:        | :---:           | :---: |
 | POST         |  /task          |  Add a new task for the user.  |
+| :---:        | :---:           | :---: |
 | GET          |  /tasks         |  Get all tasks created by the user.  |
+| :---:        | :---:           | :---: |
 | UPDATE       |  /task/update   |  Update task, selected by the user.  |
+| :---:        | :---:           | :---: |
 | DELETE       |  /task/delete   |  Delete task, selected by the user.  |
 
