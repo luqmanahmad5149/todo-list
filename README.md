@@ -10,60 +10,39 @@ Track tasks completion API
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Instruction for running and building the app
+1. Open Source Tree.
+2. Clone from URL:
+    1. Source URL: https://github.com/luqmanahmad5149/todo-list.git
+    2. Destination Path: /Users/Shared/todo-list
+    3. Name: todo-list
+    4. Checkout branch: main
+3. Open terminal.
+4. Go to the project directory by using this command “cd Users/Shared/todo-list”.
+5. Type “make setup”. This command will build a docker image and execute the necessary script.
+6. Create a .env file inside the project root.
+7. Copy and paste the .env.example file content into the .env file.
+8. Type “make data”. This command will run the Laravel migration and seeder.
+9. Now you can open this URL “http://localhost:9000/“ and the home page will be shown.
+10. Go to “http://localhost:9000/login” to be redirected to the login page.
+11. For unit test execution, please enter the docker container first using this command “docker exec -it todo-list bash”. Then use this script “php artisan test” to execute the unit test.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Instruction for Testing the app
+1. First go to “http://localhost:9000/login” and login via Google.
+2. After redirecting to “http://localhost:9000/dashboard”.
+3. Download this postman collection for To-Do Api “https://drive.google.com/file/d/1bKjA6xffcFZl0m1IXQv_LZoIB2QVpvL5/view?usp=sharing”.
+4. Import the collection inside Postman.
+5. Go to the ToDo List -> Login. Then, enter the JSON body as follows.
+    1. Email: "paraguayfromghell@gmail.com" -> Should be based on your google email.
+    2. Password: “password” -> Don’t change, this is the default password.
+6. You will get a token. Copy it and paste it inside the Authorization tab -> Bearer Token -> Token.
+7. Now you can test all APIs using the API collection provided.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## API Interface Documentation
+| HTTP Request | Endpoint        | Description    |
+| POST         | /login          | Login into the project and get authenticated. |
+| POST         |  /task          |  Add a new task for the user.  |
+| GET          |  /tasks         |  Get all tasks created by the user.  |
+| UPDATE       |  /task/update   |  Update task, selected by the user.  |
+| DELETE       |  /task/delete   |  Delete task, selected by the user.  |
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
