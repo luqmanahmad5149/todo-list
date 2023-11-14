@@ -39,15 +39,11 @@ Track tasks completion API
 7. Now you can test all APIs using the API collection provided.
 
 ## API Interface Documentation
-| HTTP Request | Endpoint        | Description    |
-| :---:        | :---:           | :---: |
+| HTTP Request | Endpoint        | Description                                   |
+| :---:        | :---:           | :---:                                         |
 | POST         | /login          | Login into the project and get authenticated. |
-| :---:        | :---:           | :---: |
-| POST         |  /task          |  Add a new task for the user.  |
-| :---:        | :---:           | :---: |
-| GET          |  /tasks         |  Get all tasks created by the user.  |
-| :---:        | :---:           | :---: |
-| UPDATE       |  /task/update   |  Update task, selected by the user.  |
-| :---:        | :---:           | :---: |
-| DELETE       |  /task/delete   |  Delete task, selected by the user.  |
+| POST         |  /task          |  Add a new task for the user.                 |
+| GET          |  /tasks         |  Get all tasks created by the user.           |
+| UPDATE       |  /task/update   |  Update task, selected by the user.           |
+| DELETE       |  /task/delete   |  Delete task, selected by the user.           |
 
